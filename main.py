@@ -1,3 +1,4 @@
+from key import *
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler
 from telegram.ext.dispatcher import run_async
 import requests
@@ -23,7 +24,7 @@ def bop(update, context):
     context.bot.send_photo(chat_id=chat_id, photo=url)
 
 def main():
-    updater = Updater('BOT_API_KEY_HERE', use_context=True)
+    updater = Updater(api_token, use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('bop',bop))
     updater.start_polling()
